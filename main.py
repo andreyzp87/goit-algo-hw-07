@@ -49,23 +49,23 @@ def delete(root, key):
             temp = root.left
             root = None
             return temp
-        root.val = min_value_node(root.right).val
+        root.val = min_value(root.right)
         root.right = delete(root.right, root.val)
     return root
 
 
-def min_value_node(node: Node):
+def min_value(node: Node):
     current = node
     while current.left:
         current = current.left
-    return current
+    return current.val
 
 
-def max_value_node(node: Node):
+def max_value(node: Node):
     current = node
     while current.right:
         current = current.right
-    return current
+    return current.val
 
 
 def sum_values_recursive(node: Node) -> int:
@@ -109,11 +109,11 @@ if __name__ == "__main__":
 
     print("\nTask 1:")
     print("В бінарному дереві пошуку найменший елемент завжди найлівіший")
-    print(f"Min value: {min_value_node(root).val}")
+    print(f"Min value: {min_value(root)}")
 
     print("\nTask 2:")
     print("В бінарному дереві пошуку найбільший елемент завжди нвйправіший")
-    print(f"Max value: {max_value_node(root).val}")
+    print(f"Max value: {max_value(root)}")
 
     print("\nTask 3:")
     print(f"Sum of values iterable: {sum_values_iterable(root)}")
